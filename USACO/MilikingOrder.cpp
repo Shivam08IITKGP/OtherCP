@@ -1,3 +1,4 @@
+// link - https://usaco.org/index.php?page=viewproblem2&cpid=832
 #include <bits/stdc++.h>
 using namespace std;
 
