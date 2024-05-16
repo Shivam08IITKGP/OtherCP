@@ -1,0 +1,5 @@
+https://www.geeksforgeeks.org/next-greater-element/
+
+Normally I do with O(n^2) time complexity
+But here O(N) is given.
+  using stacks or maps
