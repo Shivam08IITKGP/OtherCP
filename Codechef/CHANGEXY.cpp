@@ -20,7 +20,7 @@ void solve()
     int moves = 0;
     //Brute Force
     //Applied reverse operations to get a from b
-
+    //Everytime we try to make b be divisible by k
     while (b != a)
     {
         if (b % k == 0)
