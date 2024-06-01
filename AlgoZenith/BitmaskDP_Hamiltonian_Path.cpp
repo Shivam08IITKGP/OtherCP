@@ -2,7 +2,7 @@ void solve()
 {
     int n, m;
     cin >> n >> m;
-    vector<vector<int>> g(n, vector<int>());
+    vector<vector<int>> g(n+1, vector<int>());
     rep(i, 1, m)
     {
         int u, v;
@@ -13,7 +13,7 @@ void solve()
     {
         if (mask == (1LL << n) - 1)
         {
-            if (node == n - 1)
+            if (node == n)
             {
                 return 1;
             }
@@ -26,12 +26,12 @@ void solve()
         int ans = 0;
         for (auto c : g[node])
         {
-            if (mask & (1LL << (c)))
+            if (mask & (1LL << (c-1)))
                 continue;
-            ans += dfs(c, mask | 1LL << (c));
+            ans += dfs(c, mask | 1LL << (c-1));
         }
         return ans;
     };
-    int ans = dfs(0, 1);
+    int ans = dfs(1, 1);
     cout << ans << endl;
 }
