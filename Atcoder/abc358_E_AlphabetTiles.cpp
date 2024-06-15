@@ -1,21 +1,37 @@
-int nCr(int n, int r)
+int fact[1005], fact_inv[1005];
+
+int binpow(int a, int b)
 {
-    // take mod as M
-    if (r > n - r)
-        r = n - r;
     int ans = 1;
-    for (int i = 1; i <= r; i++)
+    while (b)
     {
-        ans = (ans * (n - r + i)) % M;
-        ans = (ans * binpow(i, M - 2)) % M;
+        if (b & 1)
+            ans = (ans * 1LL * a) % M;
+        a = (a * 1LL * a) % M;
+        b >>= 1;
     }
-    return (ans) % M;
+    return ans;
 }
 
+int nCr(int n, int r)
+{
+    if (r == 0 || n == r)
+        return 1;
+
+    int nume = fact[n];
+    int deno = (fact_inv[r] * 1LL * fact_inv[n - r]) % M;
+    return (nume * 1LL * deno) % M;
+}
 void solve()
 {
     int k;
     cin >> k;
+    fact[0] = fact_inv[0] = 1;
+    for (int i = 1; i <= k; i++)
+    {
+        fact[i] = (i * 1LL * fact[i - 1]) % M;
+        fact_inv[i] = binpow(fact[i], M - 2);
+    }
     vi c(27);
     for (int i = 1; i <= 26; i++)
     {
