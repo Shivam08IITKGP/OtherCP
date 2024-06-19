@@ -1,5 +1,4 @@
 const int INF = 1e18;
-
 vector<vector<int>> adj;
 vector<vector<int>> dp;
 
@@ -64,8 +63,8 @@ void solve()
 
     1) When the bitmask is zero, we have only started from node 0 to node town
     2) So we add the cost of town 0 to that town
-    3) When bitmask is filled with 1, it means that every city is transfered to node n
-    4) 
+    3) When bitmask is filled with 1, it means that every city is transferred to node n
+    4) Think of the this solution intuitively after reading the solution
 
 
 
