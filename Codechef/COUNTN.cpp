@@ -31,7 +31,10 @@ void sieve()
         }
     }
 }
-
+// Suppose N = d * alpha
+// A number N has a spf = alpha, this means that the smallest divisor of N is alpha (except 1)
+// Rest of the divisors either can be broken and transfered to the alpha
+// We will calculate sum of primes till the spf of d (incl spf of d)
 void solve()
 {
     int n;
