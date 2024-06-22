@@ -16,16 +16,20 @@ void solve()
             return;
         }
     }
-    if (0 == x)
+    else if (x == 0)
     {
-        if (0 != a)
+        if (a != 0)
         {
             cout << -1 << endl;
             return;
         }
     }
-
-    ans = y * max(ceel(a, x), max(ceel(b, y), ceel(b - a, y - x)))-b;
-    cout << ans << endl;
+    else
+    {
+        ans = y * max(ceel(a, x), max(ceel(b, y), ceel(b - a, y - x))) - b;
+        cout << ans << endl;
+        return;
+    }
+    cout << 0 << endl;
     return;
 }
