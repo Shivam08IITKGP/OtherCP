@@ -1,0 +1,31 @@
+void solve()
+{
+    int n, k;
+    cin >> n >> k;
+    vi a(n);
+    read(a);
+    vi pref(n, a[0]);
+    rep(i, 1, n - 1)
+    {
+        pref[i] = pref[i - 1] + a[i];
+    }
+
+    int ans = INT_MAX;
+    for (int i = 0; i < n; i++)
+    {
+        remin(ans, abs(pref[i] - k));
+        if (i > 0 and pref[i] > k)
+        {
+            int p = upper_bound(pref.begin(), pref.begin() + i - 1LL, pref[i] - k) - pref.begin();
+            if (p != i)
+            {
+                remin(ans, abs(pref[i] - pref[p] - k));
+            }
+            if (p != 0)
+            {
+                remin(ans, abs(pref[i] - pref[p - 1] - k));
+            }
+        }
+    }
+    cout << ans << endl;
+}
