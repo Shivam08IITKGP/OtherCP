@@ -13,3 +13,11 @@ int Solution::numTrees(int A)
     return dp[A];
     
 }
+/*
+The inner loop calculates the number of unique BSTs 
+with n nodes by considering each value i as the root 
+of the BST. The number of unique BSTs with n nodes 
+is the sum of the products of the number of unique 
+BSTs of the left and right subtrees. The left subtree
+has i-1 nodes, and the right subtree has n-i nodes.
+*/
