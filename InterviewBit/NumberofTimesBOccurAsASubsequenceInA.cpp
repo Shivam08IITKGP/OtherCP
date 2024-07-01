@@ -7,7 +7,7 @@ int Solution::numDistinct(string A, string B)
     for(int i=0;i<n;i++)
     {
         for(int j = m-1;j>=0;j--)
-        {
+        {//This loop order is important
             if(A[i]==B[j])
             {
                 dp[j+1]+= dp[j];
